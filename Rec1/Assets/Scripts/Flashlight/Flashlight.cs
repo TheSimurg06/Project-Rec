@@ -5,17 +5,19 @@ using UnityEngine;
 public class Flashlight : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject flashlight;
     public GameObject whiteLight;
-    public Light fener;
+    private Light fener;
     private bool onOff = false;
     public float maxIntensity = 2.1f; 
-    private float intensity = 0f;
+    private float intensity = 2.1f;
     public float intensityAcceleration = 0.1f;
 
     void Start()
     {
-        fener = whiteLight.GetComponent<Light>();
-        fener.intensity = 0f;
+        //fener = whiteLight.GetComponent<Light>();
+        //fener.intensity = 0f;
+        whiteLight.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,25 +28,15 @@ public class Flashlight : MonoBehaviour
         {
             if(onOff) 
             {
-                intensity = 0f;
-                fener.intensity = intensity;
+                whiteLight.SetActive(false);
                 onOff = false;
             }   
             else
             {
-                intensity = 2.1f;
-                fener.intensity = intensity;
+                whiteLight.SetActive(true);
                 onOff = true;
             }
         }
     }
 
-    private void LightOn(){
-        while(intensity < maxIntensity) {
-            intensity += intensityAcceleration * Time.deltaTime;
-            fener.intensity = intensity;
-            Debug.Log("intensity = " + intensity);
-        }
-        fener.intensity = maxIntensity;
-    }
 }

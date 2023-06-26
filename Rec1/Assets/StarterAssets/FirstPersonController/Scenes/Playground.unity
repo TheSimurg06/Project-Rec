@@ -240,8 +240,8 @@ MonoBehaviour:
   impactForce: 30
   reloadTime: 1
   maxAmmo: 10
-  currentAmmo: 0
-  animator: {fileID: 0}
+  currentAmmo: 10
+  animator: {fileID: 1330034383}
 --- !u!1 &267942802 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1671029925390012, guid: 119551172e2002344983c075ab97ef79, type: 3}
@@ -376,9 +376,9 @@ MonoBehaviour:
   muzzleFlash: {fileID: 2038437079}
   impact: {fileID: 1829564167}
   impactForce: 60
-  reloadTime: 1
-  maxAmmo: 10
-  currentAmmo: 0
+  reloadTime: 1.5
+  maxAmmo: 20
+  currentAmmo: 20
   animator: {fileID: 1330034383}
 --- !u!198 &372069024 stripped
 ParticleSystem:
@@ -655,8 +655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c0e2ca6c58f6a4981946e613b9db0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashlight: {fileID: 805154440}
   whiteLight: {fileID: 1099349642}
-  fener: {fileID: 0}
   maxIntensity: 2.1
   intensityAcceleration: 0.01
 --- !u!1 &833803575 stripped
@@ -2262,8 +2262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c0e2ca6c58f6a4981946e613b9db0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashlight: {fileID: 0}
   whiteLight: {fileID: 1099349642}
-  fener: {fileID: 0}
   maxIntensity: 2.1
   intensityAcceleration: 0.1
 --- !u!1 &2114283753834967212

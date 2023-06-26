@@ -21,7 +21,17 @@ public class Gun : MonoBehaviour
     public Animator animator;
 
 
-    // Update is called once per frame
+    void Start() 
+    {
+        currentAmmo = maxAmmo;
+    }
+    //gameobject her aktif olduğunda tekrar çağrılır. 
+    //Böylelikle şarjör değiştirirken silah değiştirince oluşan bug çözülür.
+    private void OnEnable() 
+    {
+        isReloading = false;
+        animator.SetBool("Reloading",false);
+    }
     void Update()
     {
         if(isReloading)
@@ -40,19 +50,18 @@ public class Gun : MonoBehaviour
             Shoot();       
         }
     }
-    void Start() {
-        currentAmmo = maxAmmo;
-    }
     IEnumerator Reload() 
     {
         animator.SetBool("Reloading",true);
         isReloading = true;
         Debug.Log("Reloading");
         //fonksiyonu dondurur.
-        yield return  new WaitForSeconds(reloadTime);
+        yield return  new WaitForSeconds(reloadTime - 0.25f);
         currentAmmo = maxAmmo;
-        isReloading = false;
         animator.SetBool("Reloading",false);
+        yield return  new WaitForSeconds(0.25f);
+        isReloading = false;
+
     }
     void Shoot()
     {
